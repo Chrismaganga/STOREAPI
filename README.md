@@ -76,14 +76,14 @@ npm run migrate
 Seed the database with sample data (optional):
 
 bash
-Copy code
+
 npm run seed
 Start the development server:
 
 bash
-Copy code
-npm run dev
-The server will start on http://localhost:3000.
+
+npm start
+The server will start on http://localhost:3000/api.
 
 Scripts
 npm run build: Builds the project for production.

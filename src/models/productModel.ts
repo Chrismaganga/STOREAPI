@@ -2,6 +2,12 @@ import pool from "../config/db";
 import { Product } from "../types/Product";
 
 export class ProductModel {
+  delete(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+  update(arg0: number, body: any) {
+    throw new Error('Method not implemented.');
+  }
   async getAll(): Promise<Product[]> {
     const result = await pool.query('SELECT * FROM products');
     return result.rows;

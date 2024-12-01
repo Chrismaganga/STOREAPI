@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { ProductModel } from '../models/productModel';
 
+
 const productModel = new ProductModel();
 
 export const getAllProducts = async (_req: Request, res: Response) => {
@@ -17,4 +18,9 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
   const product = await productModel.create(req.body);
   res.status(201).json(product);
+};
+export const updateProduct = async (req: Request, res: Response) => {
+  const updatedProduct = await productModel.update(Number(req.params.id), req.body);
+  if (updatedProduct !== null) res.json(updatedProduct);
+  else res.status(404).json({ message: 'Product not found' });
 };
