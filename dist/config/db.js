@@ -13,5 +13,8 @@ const pool = new pg_1.Pool({
     password: process.env.DB_PASSWORD,
     port: Number(process.env.DB_PORT) || 5432,
 });
+pool.on('connect', () => {
+    console.log('Connected to the database');
+});
 exports.default = pool;
 //# sourceMappingURL=db.js.map

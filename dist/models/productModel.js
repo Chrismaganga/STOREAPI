@@ -15,6 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductModel = void 0;
 const db_1 = __importDefault(require("../config/db"));
 class ProductModel {
+    delete(arg0) {
+        throw new Error('Method not implemented.');
+    }
+    update(arg0, body) {
+        throw new Error('Method not implemented.');
+    }
     getAll() {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield db_1.default.query('SELECT * FROM products');

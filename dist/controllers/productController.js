@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProduct = exports.getProductById = exports.getAllProducts = void 0;
+exports.updateProduct = exports.createProduct = exports.getProductById = exports.getAllProducts = void 0;
 const productModel_1 = require("../models/productModel");
 const productModel = new productModel_1.ProductModel();
 const getAllProducts = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -30,4 +30,12 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     res.status(201).json(product);
 });
 exports.createProduct = createProduct;
+const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const updatedProduct = yield productModel.update(Number(req.params.id), req.body);
+    if (updatedProduct !== null)
+        res.json(updatedProduct);
+    else
+        res.status(404).json({ message: 'Product not found' });
+});
+exports.updateProduct = updateProduct;
 //# sourceMappingURL=productController.js.map
